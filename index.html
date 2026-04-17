@@ -599,7 +599,7 @@ section.cv-section:last-of-type {
 /* ══════════════ PRINT ══════════════ */
 @page {
   size: A4;
-  margin: 12mm 0 12mm 0;
+  margin: 6mm 0 6mm 0;
 }
 @media print {
   html, body {
@@ -614,37 +614,78 @@ section.cv-section:last-of-type {
     margin: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
+    font-size: 8.5pt !important;
+    line-height: 1.38 !important;
   }
-  .cv-wrap::before {
-    display: none !important;
-  }
+  .cv-wrap::before { display: none !important; }
+  /* Header */
   .resume-header {
-    padding: 8mm 14mm 4mm !important;
-    page-break-inside: avoid;
+    padding: 4mm 10mm 2mm !important;
+    gap: 5mm !important;
   }
+  .name { font-size: 24pt !important; margin-bottom: 1mm !important; }
+  .tagline { font-size: 10pt !important; margin-bottom: 2mm !important; }
+  .contact-line { font-size: 7pt !important; gap: 0.8mm 2.5mm !important; }
+  .contact-line .sep { font-size: 8pt !important; }
+  .header-label { font-size: 5.5pt !important; margin-bottom: 1.5mm !important; }
+  .header-label::before { width: 7mm !important; }
+  .photo-frame { width: 24mm !important; }
+  .photo-frame::before { display: none !important; }
+  /* Sections */
   section.cv-section {
-    padding: 5mm 14mm 4mm !important;
-    page-break-inside: avoid;
+    padding: 2.5mm 10mm 2mm !important;
+    border-bottom-width: 0.5px !important;
   }
-  .pillar {
-    page-break-inside: avoid;
-  }
-  .job {
-    page-break-inside: avoid;
-  }
-  .award {
-    page-break-inside: avoid;
-  }
-  .closing {
-    page-break-inside: avoid;
-  }
-  .page-foot {
-    padding: 2mm 14mm 6mm !important;
-    page-break-inside: avoid;
-  }
-  .photo-frame::before {
-    display: none !important;
-  }
+  .section-head { margin-bottom: 1.5mm !important; padding-bottom: 0.8mm !important; }
+  .section-head .roman { font-size: 9pt !important; min-width: 6mm !important; }
+  .section-head h2 { font-size: 7.5pt !important; letter-spacing: 0.1em !important; }
+  .section-head h2 em { font-size: 9pt !important; }
+  .section-head .dot { width: 3px !important; height: 3px !important; }
+  /* Body text */
+  .body p { font-size: 7.8pt !important; line-height: 1.4 !important; margin-bottom: 1.2mm !important; }
+  .body ul li { font-size: 7.8pt !important; line-height: 1.4 !important; margin-bottom: 0.5mm !important; padding-left: 3.5mm !important; }
+  .body ul li::before { width: 2px !important; height: 2px !important; top: 2mm !important; }
+  .body strong { padding: 0 !important; }
+  /* Pillars */
+  .pillar { margin-bottom: 2mm !important; }
+  .pillar-head { font-size: 9pt !important; margin-bottom: 1mm !important; gap: 2mm !important; }
+  .pillar-head .pillar-letter { font-size: 9.5pt !important; min-width: 5mm !important; }
+  .tools-bar { font-size: 7pt !important; padding: 1.5mm 2.5mm !important; margin-top: 1mm !important; }
+  /* Jobs */
+  .jobs { margin-top: 0 !important; }
+  .job { padding: 1.5mm 0 !important; gap: 2.5mm !important; grid-template-columns: 22mm 1fr !important; }
+  .job-years { font-size: 9pt !important; }
+  .job-title { font-size: 9pt !important; }
+  .job-org { font-size: 8pt !important; margin: 0.2mm 0 0.5mm !important; }
+  .job-desc { font-size: 7.5pt !important; line-height: 1.38 !important; }
+  /* Awards */
+  .awards { margin-top: 0 !important; }
+  .award { padding: 1.2mm 0 !important; gap: 2mm !important; grid-template-columns: 9mm 1fr !important; }
+  .award-num { font-size: 9.5pt !important; }
+  .award-num::before { width: 2px !important; height: 2px !important; margin-right: 1mm !important; }
+  .award-title { font-size: 9pt !important; }
+  .award-desc { font-size: 7.5pt !important; margin-top: 0.5mm !important; }
+  /* Facts */
+  .facts { gap: 1.8mm 3mm !important; }
+  .fact { font-size: 7.5pt !important; line-height: 1.38 !important; }
+  .fact .lbl { font-size: 5.5pt !important; margin-bottom: 0.5mm !important; letter-spacing: 0.14em !important; }
+  .edu-facts { gap: 1.8mm 3mm !important; }
+  .edu-fact { font-size: 7.5pt !important; line-height: 1.38 !important; }
+  .edu-fact .lbl { font-size: 5.5pt !important; margin-bottom: 0.5mm !important; }
+  /* Closing */
+  .closing { padding: 2mm 4mm !important; margin-top: 0 !important; }
+  .closing::before { width: 14mm !important; left: 4mm !important; }
+  .closing p { font-size: 7.8pt !important; line-height: 1.4 !important; margin-bottom: 1mm !important; }
+  .closing .avail { font-size: 7.8pt !important; margin-top: 1.5mm !important; padding-top: 1mm !important; }
+  .closing .sign-off { margin-top: 2mm !important; padding-top: 1mm !important; }
+  .closing .s-name { font-size: 10pt !important; }
+  .closing .s-email { font-size: 6pt !important; }
+  /* Footer */
+  .page-foot { padding: 1.5mm 10mm 3mm !important; font-size: 5.5pt !important; }
+  .page-foot em { font-size: 7pt !important; }
+  /* Page breaks */
+  .job, .award { page-break-inside: avoid; }
+  .section-head { page-break-after: avoid; }
   a { text-decoration: none !important; }
 }
 
